@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="username" placeholder="Enter your username">
+        <input type="email" name="email" placeholder="Enter your E-mail">
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        const form=document.querySelector('form');
+
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+        
+        const formData=new FormData(form);
+        for(let[key,value] of formData.entries()){
+            console.log(`${key}:${value}`);
+        }
+    });
+    </script>
+</body>
+</html>

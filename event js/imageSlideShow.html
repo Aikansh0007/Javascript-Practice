@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img id="slideshow" src="https://www.bing.com/th?id=OIP.7cRYFyLoDEDh4sRtM73vvwHaDg&w=205&h=100&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="good img1">
+        <div>
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
+        </div>
+    </div>
+    <script>
+        const img=[
+        "https://www.bing.com/th?id=OIP.uHaqRdiMzWSMCR2LzsmhtQHaEZ&w=164&h=100&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" ,
+        "https://www.bing.com/th?id=OIP.MBlOJPg-beF5E6q2yR5k9gHaLH&w=83&h=106&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2 ",
+        "https://www.bing.com/th?id=OIP.VJ6Han-RZj6Vl115t1FpdAHaE8&w=145&h=104&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" ,
+        ];
+        let currentInd=0;
+        const prevButton=document.getElementById("prev");
+        const nextButton=document.getElementById("next");
+        const slideshow=document.getElementById('slideshow');
+        function updateImage(){
+            slideshow.src=img[currentInd];
+        }
+        prevButton.addEventListener('click',()=>{
+            currentInd=(currentInd===0)?img.length-1:currentInd-1;
+            updateImage();
+        });
+        nextButton.addEventListener('click',()=>{
+            currentInd=(currentInd===img.length-1)?0:currentInd+1;
+            updateImage();
+        });
+        updateImage();
+    </script>
+</body>
+</html>

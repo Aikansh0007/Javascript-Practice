@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .toggle{
+            display: inline-block;
+            width:60px;
+            height:40px;
+            position:relative;
+            border-radius:34px;
+            background-color: black;
+            cursor:pointer;
+            transition:background-color 3s;
+        }
+        .toggle::before{
+            content:"";
+            position: absolute;
+            width:24px;
+            height:24px;
+            border-radius: 50%;
+            background-color: brown;
+            top:4px;
+            left:4px;
+            transition:transform 3s
+        }
+        .toggle.on{
+            background-color: greenyellow;
+        }
+        .toggle.on::before{
+            transform: translate(26px);
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle"></div>
+    <script>
+        const toggle=document.querySelector(".toggle");
+
+        toggle.addEventListener('click',()=>{
+            toggle.classList.toggle('on');
+        });
+    </script>
+</body>
+</html>
