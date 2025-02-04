@@ -1,0 +1,64 @@
+class Node{
+    constructor(data){
+        this.data=data;
+        this.next=null;
+    }
+}
+
+class SinglyLinkedList{
+    constructor(head=null){
+        this.head=head
+    }
+    add(newNode){
+        let node=this.head;
+        if(node==null){
+            this.head=newNode
+            return;
+        }
+        while(node.next){
+            node=node.next;
+        }
+        node.next=newNode;
+    }
+    displayList(){
+        let node=this.head;
+        var str='';
+        while(node){
+            str+=node.data+' ';
+            node=node.next;
+        }
+        str+='NULL';
+        console.log(str);
+    }
+    insertAtPos(pos,newNode){
+        if(pos<0){
+            console.log("Invalid position");
+            return;
+        }
+        if(pos==0){
+            newNode.next=this.head;
+            this.head=newNode;
+            return;
+        }
+        let node=this.head;
+        var cnt=1;
+        while(node.next && cnt<pos){
+            cnt++;
+            node=node.next;
+        }
+        newNode.next=node.next;
+        node.next=newNode;
+    }
+}
+let numList = new SinglyLinkedList();
+
+numList.add(new Node(2));
+numList.add(new Node(3));
+numList.add(new Node(4));
+numList.add(new Node(5));
+numList.add(new Node(6));
+numList.add(new Node(7));
+numList.displayList();
+
+numList.insertAtPos(3,new Node(10));
+numList.displayList();
